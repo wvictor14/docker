@@ -6,28 +6,12 @@ MAINTAINER Victor Yuan
 
 ARG bioc_ver=3.19
 
-RUN apt clean all && \
-    apt update && \
-    apt upgrade -y && \
-    apt install -y \
-        libhdf5-dev \
-        libcurl4-gnutls-dev \
-        libssl-dev \
-        libxml2-dev \
-        libpng-dev \
-        libxt-dev \
-        zlib1g-dev \
-        libbz2-dev \
-        liblzma-dev \
-        libglpk40 \
-        libgit2-dev \
-    && apt clean all && \
-    apt purge && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 RUN install2.r -e -s -n -1 \
-    rmarkdown \
     tidyverse \
+    shiny \
+    ggh4x \
+    devtools \
+    here \
     BiocManager \
     && rm -rf /tmp/downloaded_packages
 RUN Rscript -e "BiocManager::install(version = '${bioc_ver}')"
