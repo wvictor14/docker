@@ -7,11 +7,8 @@ on:
     tags:
       - 'v*'
     paths:
-      - 'rstudio/Dockerfile'
       - 'rstudio/**'
       - '.github/workflows/docker_publish.yml'
-  pull_request:
-    branches: ['main', 'dev']
   
 jobs:
   docker:
@@ -33,8 +30,6 @@ jobs:
           images: victor2wy/rstudio
           tags: |
             type=raw,value=latest,enable={{is_default_branch}} # set latest tag for default branch
-            type=ref,event=branch
-            type=ref,event=pr
             type=semver,pattern={{version}}
       - name: Build and push Docker image
         id: push
