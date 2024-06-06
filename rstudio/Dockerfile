@@ -7,14 +7,29 @@ MAINTAINER Victor Yuan
 ARG bioc_ver=3.19
 
 RUN install2.r -e -s -n -1 \
-    tidyverse \
+    devtools 
+    
+# for theme
+# run when rstudio open: `rscodeio::install_theme()`
+RUN Rscript -e "remotes::install_github('anthonynorth/rscodeio') 
+
+# regular R package dependencies
+RUN install2.r -e -s -n -1 \
+    pak \
+    readr \
+    dplyr \
+    tidyr \
+    ggplot2 \
+    purrr \
+    forcats \
+    stringr \
     shiny \
     ggh4x \
-    devtools \
     here \
     BiocManager \
     && rm -rf /tmp/downloaded_packages
 RUN Rscript -e "BiocManager::install(version = '${bioc_ver}')"
+
 
 # the rstudio/ path is set for building with GitHub Actions
 # copies rstudio preferences
