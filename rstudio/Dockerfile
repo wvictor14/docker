@@ -11,7 +11,7 @@ RUN install2.r -e -s -n -1 \
     
 # for theme
 # run when rstudio open: `rscodeio::install_theme()`
-RUN Rscript -e "remotes::install_github('anthonynorth/rscodeio') 
+RUN Rscript -e "devtools::install_github('anthonynorth/rscodeio')"
 
 # regular R package dependencies
 RUN install2.r -e -s -n -1 \
