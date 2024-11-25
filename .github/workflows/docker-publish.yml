@@ -9,6 +9,8 @@ on:
     paths:
       - 'rstudio/**'
       - '.github/workflows/docker_publish.yml'
+  pull_request:
+    branches: ['main', 'dev']
   
 jobs:
   docker:
