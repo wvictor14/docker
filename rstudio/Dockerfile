@@ -46,5 +46,6 @@ COPY --chown=rstudio:rstudio .zshrc /.zshrc
 # copies rstudio preferences
 COPY --chown=rstudio:rstudio rstudio-prefs.json /home/rstudio/.config/rstudio
 COPY --chown=rstudio:rstudio .Rprofile /home/rstudio/
+COPY --chown=rstudio:rstudio .Renviron /home/rstudio/
 
 WORKDIR /home/rstudio
