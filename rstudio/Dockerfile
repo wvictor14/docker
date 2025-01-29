@@ -40,6 +40,7 @@ RUN sudo apt update -y
 RUN sudo apt install zsh -y
 RUN sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y
 RUN chsh -s "$(which zsh)"
+RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 COPY --chown=rstudio:rstudio .zshrc /.zshrc
 
 # the rstudio/ path is set for building with GitHub Actions
