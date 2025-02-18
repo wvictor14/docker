@@ -41,6 +41,8 @@ RUN sudo apt install zsh -y
 RUN sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y
 RUN chsh -s "$(which zsh)"
 RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+RUN git clone https://github.com/akarzim/zsh-docker-aliases.git  ~/.oh-my-zsh/custom/plugins/zsh-docker-aliases
+
 COPY --chown=rstudio:rstudio .zshrc /.zshrc
 
 # the rstudio/ path is set for building with GitHub Actions
