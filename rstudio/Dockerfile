@@ -1,8 +1,7 @@
 FROM rocker/rstudio:4.4.2
 
 LABEL source="https://github.com/wvictor14/docker/blob/main/rstudio/Dockerfile"
-
-MAINTAINER Victor Yuan 
+LABEL author="Victor Yuan"
 
 # set up R packages
 ARG bioc_ver=3.20
@@ -49,6 +48,5 @@ COPY --chown=rstudio:rstudio .zshrc /.zshrc
 # copies rstudio preferences
 COPY --chown=rstudio:rstudio rstudio-prefs.json /home/rstudio/.config/rstudio
 COPY --chown=rstudio:rstudio .Rprofile /home/rstudio/
-COPY --chown=rstudio:rstudio .Renviron /home/rstudio/
 
 WORKDIR /home/rstudio
