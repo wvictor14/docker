@@ -31,6 +31,9 @@ RUN install2.r -e -s -n -1 \
     leaflet \ 
     reactable \
     crosstalk \
+    curl \ 
+    png \ 
+    xml2 \
     && rm -rf /tmp/downloaded_packages
 RUN Rscript -e "BiocManager::install(version = '${bioc_ver}', update = TRUE, ask = FALSE)"
 
