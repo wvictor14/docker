@@ -1,4 +1,4 @@
-FROM rocker/rstudio:4.4.2
+FROM rocker/rstudio:4.5.0
 
 LABEL source="https://github.com/wvictor14/docker/blob/main/rstudio/Dockerfile"
 LABEL author="Victor Yuan"
@@ -23,6 +23,8 @@ RUN install2.r -e -s -n -1 \
     forcats \
     stringr \
     shiny \
+    bslib \
+    htmltools \
     ggh4x \
     here \
     lubridate \
