@@ -4,7 +4,7 @@ LABEL source="https://github.com/wvictor14/docker/blob/main/rstudio/Dockerfile"
 LABEL author="Victor Yuan"
 
 # set up R packages
-ARG bioc_ver=3.20
+ARG bioc_ver=3.21
 RUN install2.r -e -s -n -1 \
     devtools 
     
