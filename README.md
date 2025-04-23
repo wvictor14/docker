@@ -15,6 +15,7 @@ docker run --name rstudio --user rstudio -d -p 8888:8787 \
   -v /workspace:/home/rstudio/workspace \
   -v /home/vyuan/r_packages/:/packages \
   -e PASSWORD=password \
+  -e USERID=$UID \ # for non-root
   victor2wy/rstudio:latest
 
 
