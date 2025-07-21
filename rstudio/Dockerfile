@@ -1,4 +1,4 @@
-FROM rocker/rstudio:4.5.0
+FROM rocker/rstudio:4.5.1
 
 LABEL source="https://github.com/wvictor14/docker/blob/main/rstudio/Dockerfile"
 LABEL author="Victor Yuan"
