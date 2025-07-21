@@ -55,4 +55,7 @@ COPY --chown=rstudio:rstudio .zshrc /.zshrc
 COPY --chown=rstudio:rstudio rstudio-prefs.json /home/rstudio/.config/rstudio
 COPY --chown=rstudio:rstudio .Rprofile /home/rstudio/
 
+# environmental variables e.g. RENV cache
+COPY --chown=rstudio:rstudio .Renviron /home/rstudio/
+
 WORKDIR /home/rstudio
