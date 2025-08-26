@@ -18,6 +18,7 @@ docker run -d --name rstudio -p 8888:8787 \
   -v /workspace:/home/rstudio/workspace \
   -e PASSWORD=password \
   -e USERID=$UID \
+  --restart unless-stopped \
   victor2wy/rstudio:latest
 
 # run in rstudio
@@ -35,7 +36,7 @@ RENV_PATHS_CACHE_HOST=/home/vyuan/workspace/renv/cache
 # where the cache should be mounted in the container
 RENV_PATHS_CACHE_CONTAINER=/renv/cache
 
-docker run -d --rm --name rstudio-v4.5.1 -d -p  8883:8787 \
+docker run -d --restart unless-stopped --name rstudio-v4.5.1 -d -p  8883:8787 \
     -e "RENV_PATHS_CACHE=${RENV_PATHS_CACHE_CONTAINER}" \
     -v "${RENV_PATHS_CACHE_HOST}:${RENV_PATHS_CACHE_CONTAINER}"  \
     -v /home/vyuan/workspace:/home/rstudio/workspace \
