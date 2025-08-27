@@ -7,7 +7,10 @@ LABEL author="Victor Yuan"
 ARG bioc_ver=3.21
 RUN install2.r -e -s -n -1 \
     devtools 
-    
+
+# INSTALL apt stuff
+RUN sudo apt-get update && sudo apt-get install libglpk-dev chromium libnode-dev
+
 # for theme
 # run when rstudio open: `rscodeio::install_theme()`
 RUN Rscript -e "devtools::install_github('anthonynorth/rscodeio')"
