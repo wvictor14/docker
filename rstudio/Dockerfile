@@ -9,7 +9,7 @@ RUN install2.r -e -s -n -1 \
     devtools 
 
 # INSTALL apt stuff
-RUN sudo apt-get update && sudo apt-get install libglpk-dev chromium libnode-dev
+RUN sudo apt-get update -y && sudo apt-get install -y libglpk-dev chromium libnode-dev
 
 # for theme
 # run when rstudio open: `rscodeio::install_theme()`
