@@ -9,15 +9,16 @@ docker tag victor2wy/rstudio victor2wy/rstudio:4.5.1
 docker push victor2wy/rstudio:4.5.1
 
 # interactive, enter zsh
-docker run --rm -it -p 8888:8787 -v /home/vyuan/workspace:/workspace -e PASSWORD=password victor2wy/rstudio zsh
+docker run --rm -it -p 8888:8787 -v /home/vyuan/workspace:/workspace -e PASSWORD=password -e ROOT=TRUE victor2wy/rstudio zsh
 
 # non-interactive
-docker run -d --name rstudio2 -p 8887:8787 -v /home/vyuan/workspace:/home/rstudio/workspace -e PASSWORD=password victor2wy/rstudio:latest
+docker run -d --name rstudio2 -p 8887:8787 -v /home/vyuan/workspace:/home/rstudio/workspace -e PASSWORD=password -e ROOT=TRUE victor2wy/rstudio:latest
 
 docker run -d --name rstudio -p 8888:8787 \
   -v /workspace:/home/rstudio/workspace \
   -e PASSWORD=password \
   -e USERID=$UID \
+  -e ROOT=TRUE \
   --restart unless-stopped \
   victor2wy/rstudio:latest
 
@@ -38,6 +39,9 @@ RENV_PATHS_CACHE_CONTAINER=/renv/cache
 
 docker run -d --restart unless-stopped --name rstudio-v4.5.1 -d -p  8883:8787 \
     -e "RENV_PATHS_CACHE=${RENV_PATHS_CACHE_CONTAINER}" \
+    -e PASSWORD=password \
+    -e USERID=$UID \
+    -e ROOT=TRUE \
     -v "${RENV_PATHS_CACHE_HOST}:${RENV_PATHS_CACHE_CONTAINER}"  \
     -v /home/vyuan/workspace:/home/rstudio/workspace \
     -e PASSWORD=password \
