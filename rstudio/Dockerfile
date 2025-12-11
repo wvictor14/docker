@@ -1,10 +1,10 @@
-FROM rocker/rstudio:4.5.1
+FROM rocker/rstudio:4.5.2
 
 LABEL source="https://github.com/wvictor14/docker/blob/main/rstudio/Dockerfile"
 LABEL author="Victor Yuan"
 
 # set up R packages
-ARG bioc_ver=3.21
+ARG bioc_ver=3.22
 RUN install2.r -e -s -n -1 \
     devtools 
 
